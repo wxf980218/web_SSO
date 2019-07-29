@@ -1,0 +1,188 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/*档案管理界面的CSS代码*/
+
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus{
+    height: 55px;
+}
+h4.panel-title{
+    text-align: center;
+}
+/*部门人员大小设置*/
+/*领导以下的*/
+h4.panel-title.panel-body{
+    border-radius: 20px;
+    background-color: #faf2cc;
+}
+/*领导*/
+h4.panel-title.panel-body.admin{
+    background-color: #dff0d8;
+    margin-bottom: 15px;
+}
+.panel img.personalIcon{
+    /*margin-left: 5px;*/
+}
+.panel img.del{
+}
+/*超链接样式*/
+a.layui-col-md8{
+    display: block;
+    height: 30px;
+    text-align: center;
+    line-height: 30px; /*设置block、与行高一致，可以使文字上下居中*/
+}
+a.layui-col-md8:link{
+    text-decoration: none;
+}
+a.layui-col-md8:hover{
+    color: white;
+}
+/*树状导航栏设计*/
+#mainContainer{
+    margin-top: 50px;
+}
+
+#searchBar{
+    height: 10px;
+    background-color: #00F7DE;
+}
+
+/*去掉上划线*/
+.panel-group .panel-heading + .panel-collapse > .panel-body, .panel-group .panel-heading + .panel-collapse > .list-group {
+    border-top: 0;
+}
+.leftNavbar{
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 500px;
+}
+/*导航条设计*/
+.leftNavbar::-webkit-scrollbar {
+    width: 5px;
+/*    如何实现导航条右移*/
+
+}
+.leftNavbar::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.6);
+     background: rgba(0,0,0,1);
+}
+/*导航样式*/
+.panel{
+    border: 0;
+    background-color: transparent;
+}
+.panel-title{
+    display: block;
+    text-align: center;
+    font-size: 20px;
+    margin-top: 5px;
+     /*设置block、与行高一致，可以使文字上下居中*/
+}
+
+.panel-heading{
+    border-radius: 20px;
+    background: rgb(153,204,255);
+    color: #000000;
+    border: none;
+    -webkit-transition: color 0.5s, background-color 0.5s; /*Chrome内核*/
+}
+.panel-heading:hover{
+    background-color: #000000;
+    color: white;
+}
+
+/*超链接样式*/
+a{
+    display: block;
+    height: 20px;
+    text-align: center;
+    line-height: 20px; /*设置block、与行高一致，可以使文字上下居中*/
+}
+a:link{
+    text-decoration: none;
+}
+a:hover{
+    color: white;
+}
+
+/*    树状导航上端的搜索*/
+.anotherSearch{
+    margin-bottom: 20px;
+}
+.anotherSearch input.form-control{
+    border-radius: 15px;
+    height: 32px;
+    display: inline-block;
+}
+.layui-anim{
+    line-height: 150px;
+    background-color: #00BFFF;
+    color: #fff;
+    border-radius: 50%;
+}
+.animal{
+    display: inline-block;
+    /*margin-left: px;*/
+}
+
+/*名片设计*/
+.head{
+    height: 50px;
+    border-radius: 10px 10px 0 0 ;
+    background-color: #2aabd2;
+}
+
+/*表格设计*/
+table{
+    text-align: center;
+}
+table td{
+    padding: 0!important;
+}
+.table tbody tr td{
+    vertical-align: middle;
+}
+table h4{
+    font-size: 25px;
+    font-weight: 600!important;
+    text-align: left;
+    margin-left: 20px;
+}
+table .form-control{
+    border-style: none!important;
+    border-radius: 0;
+    text-align: center;
+    height: 44px;
+}
+select.selectpicker.form-control{
+    padding-left: 110px;
+    border-style: none!important;
+    border-radius: 0;
+}
+table #conf{
+    height: 73px;
+}
+/*    上传图片*/
+#demo1.layui-upload-img{
+    width: 100px;
+    height: 120px;
+    border: transparent!important;
+}
+.layui-btn{
+    height: 25px;
+    font-size: 12px;
+    line-height: normal;
+}
+/*    城市联动*/
+#s_province,#s_province1{
+    border: transparent;
+    float: left;
+}
+#s_city,#s_city1{
+    border: transparent;
+    float: left;
+}

@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>档案管理</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="layui-v2.5.4/layui/css/layui.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<div class="layui-container">
+    <!--导航-->
+    <div class="layui-row">
+        <div class="layui-col-lg12">
+            <nav class="navbar navbar-inverse" role="navigation">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#example-navbar-collapse" aria-expanded="false">
+                            <span class="sr-only">切换导航</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a href="#" class="navbar-brand">
+                            <img src="imgs/logo.jpg" alt="中国电信图标" style="width:45px;height:45px;position: relative;top: -10px" >
+                        </a>
+                    </div>
+                    <div class="navbar-container">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="archivesManagement.html">档案管理</a></li>
+                            <li><a href="wageManage.html">工资管理</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    考评管理 <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">月考评图</a></li>
+                                    <li><a href="#">季度考评图</a></li>
+                                    <li><a href="#">半年考评图</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">年度考评图</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">另一个分离的链接</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="#"><img src="imgs/个人设置.png"alt="个人设置"></a></li>
+                                <li><a href="#">英文</a></li>
+                            </ul>
+                            <form class="navbar-form navbar-right">
+                                <input type="text" class="form-control" placeholder="Search...">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <!--搜索、编辑、完成、折叠、档案界面-->
+    <div class="layui-row" id = "mainContainer">
+            <!--搜索、编辑、完成、折叠-->
+            <div class="layui-col-md3" id = "leftTreeNav">
+                <div class="layui-row grid-demo">
+                    <div class="leftSection">
+                        <!--功能键-->
+                        <div class="anotherSearch layui-row">
+                            <!--搜索-->
+                            <input type="text" class="form-control layui-col-md8" placeholder="Search...">
+                            <!--完成-->
+                            <div class = "animal layui-col-md2 layui-col-md-offset2">
+                                <ul class="site-doc-icon site-doc-anim">
+                                    <img class="layui-anim" data-anim="layui-anim-scaleSpring" src="imgs/confirm.png" alt="">
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!--滚动条-->
+                        <div class="leftNavbar">
+                            <div class="panel-group layui-col-space5" id="accordion">
+                                <div class="panel">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion"
+                                               href="#collapseOne">
+                                                客户调度服务中心
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseOne" class="panel-collapse collapse">
+                                        <div class="panel-body" id = "fatherNode">
+                                            <div class="panel panel-primary collapseFive_Inner">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title" style="text-align: center">
+                                                        <!--                                            以部门的形式添加可以添加3层-->
+                                                        <!--                                            <a href="#" data-toggle="modal" data-target="#myModal" class = "addDepart">添加</a>-->
+                                                        <a href="#" data-toggle="modal" data-target="#myModal" class = "addClass">添加</a>
+                                                    </h4>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="panel ">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion"
+                                               href="#collapseTwo">
+                                                政支中心
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseTwo" class="panel-collapse collapse">
+                                        <div class="panel-body" class = "fatherNode">
+
+                                            <div class="panel panel-primary collapseFive_Inner">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title" style="text-align: center">
+                                                        <a href="#" data-toggle="modal" data-target="#myModal" class = "addClass">添加</a>
+                                                    </h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="panel ">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion"
+                                               href="#collapseThree">
+                                                无线中心
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseThree" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <div class="panel panel-primary collapseFive_Inner">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title" style="text-align: center">
+                                                        <a href="#" data-toggle="modal" data-target="#myModal" class = "addClass">添加</a>
+                                                    </h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="panel ">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion"
+                                               href="#collapseFour">
+                                                云计算中心
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseFour" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <div class="panel panel-primary collapseFive_Inner">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title" style="text-align: center">
+                                                        <a href="#" data-toggle="modal" data-target="#myModal" class = "addClass">添加</a>
+                                                    </h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="panel ">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion"
+                                               href="#collapseFive">
+                                                企信部
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseFive" class="panel-collapse collapse">
+                                        <div class="panel-group" id="Inner">
+                                            <div class="panel-body">
+                                                <!--1层嵌套-->
+
+                                                <!--部门领导人-->
+
+                                                <div class="panel  collapseFive_Inner">
+                                                    <h4 class="panel-title panel-body admin layui-row" style="text-align: center">
+                                                        <img src="imgs/person.png" alt="" class = "personalIcon layui-col-md2">
+                                                        <a href="#" class="layui-col-md8">主任-李伟</a>
+                                                    </h4>
+                                                </div>
+
+                                                <div class="panel  collapseFive_Inner">
+                                                    <h4 class="panel-title panel-body admin layui-row" style="text-align: center">
+                                                        <img src="imgs/person.png" alt="" class = "personalIcon layui-col-md2">
+                                                        <a href="#" class="layui-col-md8">副主任-王芳</a>
+                                                    </h4>
+                                                </div>
+
+                                                <!--班组-->
+                                                <div class="panel  collapseFive_Inner">
+                                                    <div class="panel-heading">
+                                                        <h4 class="panel-title">
+                                                            <a data-toggle="collapse" data-parent="#Inner"
+                                                               href="#class1">
+                                                                班组1
+                                                            </a>
+                                                        </h4>
+                                                    </div>
+
+                                                    <div id="class1" class="panel-collapse collapse ">
+                                                        <div class="panel-group" id="Inner2">
+                                                            <div class="panel-body">
+                                                                <!--2层嵌套折叠-->
+                                                                <div class="panel  collapseFive_Inner_1">
+                                                                    <div class="panel  collapseFive_Inner" >
+                                                                        <h4 class="panel-title panel-body layui-row" style="text-align: center;">
+                                                                            <img src="imgs/person.png" alt="" class = "personalIcon layui-col-md2" >
+                                                                            <a href="#" class = "layui-col-md8">小张</a>
+                                                                            <img src="imgs/delete.png" alt="delIcon"
+                                                                                 data-toggle="modal" data-target="#myModaDel" class = "del layui-col-md2">
+                                                                        </h4>
+                                                                    </div>
+                                                                    <div class="panel  collapseFive_Inner">
+                                                                        <h4 class="panel-title panel-body layui-row" style="text-align: center">
+                                                                            <img src="imgs/person.png" alt="" class = "personalIcon layui-col-md2">
+                                                                            <a href="#" class = "layui-col-md8">小李</a>
+                                                                            <img src="imgs/delete.png" alt="delIcon"
+                                                                                 data-toggle="modal" data-target="#myModaDel" class = "del layui-col-md2">
+                                                                        </h4>
+                                                                    </div>
+                                                                    <div class="panel panel-primary collapseFive_Inner">
+                                                                        <div class="panel-heading">
+                                                                            <h4 class="panel-title" style="text-align: center">
+                                                                                <a href="#" data-toggle="modal" data-target="#myModal" class = "addPerson">添加</a>
+                                                                            </h4>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="panel  collapseFiveInner_1">
+                                                    <div class="panel-heading">
+                                                        <h4 class="panel-title">
+                                                            <a data-toggle="collapse" data-parent="#Inner"
+                                                               href="#collapseFive_2">
+                                                                班组2
+                                                            </a>
+                                                        </h4>
+                                                    </div>
+                                                    <div id="collapseFive_2" class="panel-collapse collapse">
+                                                        <div class="panel-body">
+                                                            <div class="panel panel-primary collapseFive_Inner">
+                                                                <div class="panel-heading">
+                                                                    <h4 class="panel-title" style="text-align: center">
+                                                                        <a href="#" data-toggle="modal" data-target="#myModal" class = "addPerson">添加</a>
+                                                                    </h4>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="panel  collapseFiveInner_1">
+                                                    <div class="panel-heading">
+                                                        <h4 class="panel-title">
+                                                            <a data-toggle="collapse" data-parent="#Inner"
+                                                               href="#collapseFive_3">
+                                                                班组3
+                                                            </a>
+                                                        </h4>
+                                                    </div>
+                                                    <div id="collapseFive_3" class="panel-collapse collapse">
+                                                        <div class="panel-body">
+                                                            <div class="panel panel-primary collapseFive_Inner">
+                                                                <div class="panel-heading">
+                                                                    <h4 class="panel-title" style="text-align: center">
+                                                                        <a href="#" data-toggle="modal" data-target="#myModal" class = "addPerson">添加</a>
+                                                                    </h4>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="panel panel-primary collapseFiveInner">
+                                                    <div class="panel-heading">
+                                                        <h4 class="panel-title" style="text-align: center">
+                                                            <a href="#" data-toggle="modal" data-target="#myModal" class = "addClass">添加</a>
+                                                        </h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="panel ">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion"
+                                               href="#collapseSix">
+                                                校园中心
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseSix" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <div class="panel panel-primary collapseFiveInner">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title" style="text-align: center">
+                                                        <a href="#" data-toggle="modal" data-target="#myModal" class = "addClass">添加</a>
+                                                    </h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="panel ">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion"
+                                               href="#collapseSeven">
+                                                新兴ICT中心
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseSeven" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <div class="panel panel-primary collapseFiveInner">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title" style="text-align: center">
+                                                        <a href="#" data-toggle="modal" data-target="#myModal" class = "addClass">添加</a>
+                                                    </h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="panel ">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion"
+                                               href="#collapseEight">
+                                                政企客户服务中心
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseEight" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <div class="panel panel-primary collapseFiveInner">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title" style="text-align: center">
+                                                        <a href="#" data-toggle="modal" data-target="#myModal" class = "addClass">添加</a>
+                                                    </h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="panel ">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion"
+                                               href="#collapseNine">
+                                                计划财务部
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseNine" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <div class="panel panel-primary collapseFiveInner">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title" style="text-align: center">
+                                                        <a href="#" data-toggle="modal" data-target="#myModal" class = "addClass">添加</a>
+                                                    </h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="panel ">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a href="#" data-toggle="modal" data-target="#myModal" class = "addDepart">添加</a>
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--选择导入属性-->
+                </div>
+            </div>
+
+            <!--档案-->
+            <div class="layui-col-md7 layui-col-md-offset1" id = "rightMain">
+                <div class="main">
+                    <div class = "head"></div>
+                    <table class="table table-bordered">
+                        <tr>
+                            <td class = "tableHead" colspan = "4">
+                                <h4>基础信息</h4>
+                            </td>
+                            <td rowspan="4"  class="layui-row">
+                                <div class = "layui-col-md12 layui-upload">
+                                    <div class="layui-upload-list">
+                                        <img class="layui-upload-img" id="demo1">
+                                        <p id="demoText"></p>
+                                    </div>
+                                    <button type="button" class="layui-btn" id="upPhoto">上传图片</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>姓名</td>
+                            <td><input class = "form-control"type="text"></td>
+                            <td>身份证号</td>
+                            <td><input class = "form-control" type="text"></td>
+                        </tr>
+                        <tr>
+                            <td>性别</td>
+                            <td>
+                                <select class="selectpicker form-control" style="text-align: center">
+                                    <option>男</option>
+                                    <option>女</option>
+                                </select>
+                            </td>
+                            <td>手机号</td>
+                            <td><input class = "form-control" type="text"></td>
+                        </tr>
+                        <tr>
+                            <td>工号</td>
+                            <td><input class = "form-control" type="text"></td>
+                            <td>岗位</td>
+                            <td><input class = "form-control" type="text"></td>
+                        </tr>
+                        <!--                其他信息-->
+                        <tr>
+                            <td id = "tableHead" colspan = "5">
+                                <h4>其他信息</h4>
+                            </td>
+                            <!--                    <td>11</td>-->
+                        </tr>
+                        <tr>
+                            <td>毕业学校</td>
+                            <td><input class = "form-control"type="text"></td>
+                            <td>家庭住址</td>
+                            <td colspan = "2">
+                                <div class = "layui-row">
+                                    <div class = "layui-col-md4">
+                                        <select name="s_province" id="s_province" class="inpt san form-control" ></select>
+                                    </div>
+                                    <div class = "layui-col-md8">
+                                        <select name="s_city" id="s_city" class="inpt san form-control">
+                                            <option>地级市</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </td>
+                            <!--                                        <td>11111</td>-->
+                        </tr>
+                        <tr>
+                            <td>最高学历</td>
+                            <td>
+                                <select class="selectpicker form-control">
+                                    <option>高中</option>
+                                    <option>本科</option>
+                                    <option>硕士</option>
+                                    <option>博士</option>
+                                </select>
+                            </td>
+                            <td>籍贯</td>
+                            <td colspan = "2">
+                                <div class = "layui-row">
+                                    <div class = "layui-col-md4">
+                                        <select name="s_province" id="s_province1" class="inpt san form-control" ></select>
+                                    </div>
+                                    <div class = "layui-col-md8">
+                                        <select name="s_city" id="s_city1" class="inpt san form-control"></select>
+                                    </div>
+                                    <!--                                    <select name="s_province" id="s_province1" class="inpt san form-control" ></select>-->
+                                    <!--                                    <select name="s_city" id="s_city1" class="inpt san form-control"></select>-->
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>政治面貌</td>
+                            <td>
+                                <label  class="btn ">
+                                    <input  type="radio" name="options"> 群众
+                                </label>
+                                <label  class="btn ">
+                                    <input  type="radio" name="options"> 共青团员
+                                </label>
+                                <label  class="btn ">
+                                    <input  type="radio" name="options"> 党员
+                                </label>
+                            </td>
+                            <td>入职日期</td>
+                            <td colspan = "2">
+                                <!--                        <input class = "form-control" data-provide="datepicker">-->
+                                <div class = "layui-row">
+                                    <div class="layui-inline layui-col-md12">
+                                        <div class="layui-input-inline">
+                                            <input type="text" class="layui-input form-control" id="entryTime" placeholder="yyyy-MM-dd">
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan = "5" id = "conf">
+                                <!--                修改-->
+                                <div class="layui-col-lg2 layui-col-lg-offset2">
+                                    <button type="button" class="layui-btn layui-btn-warm" style="height: 40px;">修改</button>
+                                </div>
+                                <!--                保存-->
+                                <div class="layui-col-lg2 layui-col-lg-offset2">
+                                    <button type="button" class="layui-btn layui-btn-normal" style="height: 40px;">保存</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+    </div>
+</div>
+
+
+
+    <!--添加人员部门模态框-->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                </div>
+                <div class="modal-body">
+                    <span>部门名称</span>
+                    <input type="text" class="form-control" id = "departNameText">
+                </div>
+                <div class="modal-footer" id = "father">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id = "off">取消</button>
+                    <button type="button" class="btn btn-primary" id = "confim">添加</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--    删除人员部门模态框-->
+    <div class="modal fade" id="myModaDel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabelDel">Modal title</h4>
+                </div>
+                <div class="modal-body">
+                    <span>确认删除？</span>
+<!--                    <input type="text" class="form-control" id = "departNameTextDel">-->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id = "confimDel">删除</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src = "layui-v2.5.4/layui/layui.js"></script>
+    <script src = "js/voro-city.js"></script>
+    <script src = "js/index.js"></script>
+</body>
+</html>

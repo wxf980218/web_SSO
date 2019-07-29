@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="624687ff-7a5a-44d3-b843-8b760691f90e" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBowerSettings">
+    <node-interpreter value="project" />
+    <bower-package value="" />
+    <bower.json value="" />
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="ProjectId" id="1OOIaYFf8ec2lQcwaCs61B6yVjo" />
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\huawei\WebstormProjects\SSO\css" />
+      <recent name="C:\Users\huawei\WebstormProjects\SSO\js" />
+      <recent name="C:\Users\huawei\WebstormProjects\SSO" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="624687ff-7a5a-44d3-b843-8b760691f90e" name="Default Changelist" comment="" />
+      <created>1563541198541</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1563541198541</updated>
+      <workItem from="1563541200733" duration="771000" />
+      <workItem from="1563755315633" duration="15455000" />
+      <workItem from="1563801821024" duration="3371000" />
+      <workItem from="1563841981117" duration="40000" />
+      <workItem from="1563842285481" duration="23893000" />
+      <workItem from="1563890314194" duration="4398000" />
+      <workItem from="1563928389085" duration="2671000" />
+      <workItem from="1563931226103" duration="8578000" />
+      <workItem from="1563946306979" duration="13946000" />
+      <workItem from="1564015068062" duration="5518000" />
+      <workItem from="1564022029475" duration="11715000" />
+      <workItem from="1564101191827" duration="21886000" />
+      <workItem from="1564299659165" duration="11636000" />
+      <workItem from="1564361027570" duration="11448000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+</project>
