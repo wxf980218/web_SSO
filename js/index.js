@@ -53,7 +53,7 @@ $(function(){
                     zTree.addNodes(treeNode, {id:(100 + newCount), pId:treeNode.id, name:$('#addInput').val()});
                     newCount++;
                 }
-                $('#modalAdd').modal('toggle')          /*关闭模态框*/
+                $('#modalAdd').modal('toggle');/*关闭模态框*/
             })
             return false;
         });

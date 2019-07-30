@@ -2,12 +2,25 @@
     margin: 0;
     padding: 0;
 }
+/*ztree样式*/
+ul.ztree{
+    width: 280px;
+}
+ul.ztree{
+    height: 400px;
+    background-color: transparent;
+}
+
+/*导航条设计*/
+ul.ztree{
+    border: none!important;
+}
 
 /*档案管理界面的CSS代码*/
 
-/*.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus{*/
-/*    height: 55px;*/
-/*}*/
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus{
+    height:55px;
+}
 h4.panel-title{
     text-align: center;
 }
