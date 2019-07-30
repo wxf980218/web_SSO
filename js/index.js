@@ -1,164 +1,124 @@
 $(function(){
-    //登录界面的JS代码
-    //密码是否可见以及图片的切换
-    $('#loginEyePassword').click(function () {
-        let pass_type = $('input.password').attr('type');
-        if (pass_type === 'password' ){
-            $('input.password').attr('type', 'text');      //设置属性
-            // $('.show_pass').removeClass('glyphicon-eye-open').addClass('glyphicon-eye-close');
-            $('#loginEyePassword').attr('src','imgs/eyeOpen.png')
-        } else {
-            $('input.password').attr('type', 'password');
-            // $('.show_pass').removeClass('glyphicon-eye-close').addClass('glyphicon-eye-open');
-            $('#loginEyePassword').attr('src','imgs/eyeClose.png')
+
+    var curMenu = null, zTree_Menu = null;
+    var setting = {
+        view: {
+            showIcon: false,
+            showLine: false,
+            selectedMulti: false,
+            dblClickExpand: false,
+            addHoverDom: addHoverDom,
+            removeHoverDom: removeHoverDom,
+            dblClickExpand: false,
+        },
+        data: {
+            simpleData: {
+                enable: true
+            }
+        },
+        edit: {
+            enable: true,
+            showRemoveBtn: true,
+            // showRemoveBtn: setRemoveBtn,         //设置结点删除按钮
+        },
+        callback: {
+            beforeClick: beforeClick,
+            beforeRemove: beforeRemove,
+            onClick: ztreeOnclick
+            // beforeRename: beforeRename
         }
+    };
+
+    var zNodes = JSON.parse(localStorage.getItem('cmts') || '[]');         /*从localStorage获取数据*/
+
+    $(document).ready(function(){
+        $.fn.zTree.init($("#treeDemo"), setting, zNodes);
     });
 
-    //档案管理界面JS
-    //添加班组
-    $('.addClass').unbind('click').bind('click',function () {
-        var self = $(this).parent().parent().parent();
-        addClass(self)
-    });
 
-    //添加人员
-    $('.addPerson').unbind('click').bind('click',function (event) {
-        var self = $(this).parent().parent().parent();
-        addPerson(self)
-    });
-    //删除人员
-    $('.del').bind('click',function () {
-        var self = $(this).parent().parent();
-        Del(self)
-    });
+    // 添加新结点
+    var newCount = 1;
+    function addHoverDom(treeId, treeNode) {
+        var sObj = $("#" + treeNode.tId + "_span");
+        if (treeNode.editNameFlag || $("#addBtn_"+treeNode.tId).length>0) return;
+        var addStr = "<span class='button add' id='addBtn_" + treeNode.tId
+            + "' title='添加' onfocus='this.blur();'></span>";
+        sObj.after(addStr);
+        var btn = $("#addBtn_"+treeNode.tId);
+        if (btn) btn.bind("click", function(){
+            $("#modalAdd").modal({});        //调用添加模态框
+            $('.closeModal,#modalAddconfirm').unbind('click').bind('click',function (event) {
+                if(event.target.id == 'modalAddconfirm'){
+                    var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+                    zTree.addNodes(treeNode, {id:(100 + newCount), pId:treeNode.id, name:$('#addInput').val()});
+                    newCount++;
+                }
+                $('#modalAdd').modal('toggle')          /*关闭模态框*/
+            })
+            return false;
+        });
+    };
+    function removeHoverDom(treeId, treeNode) {
+        $("#addBtn_"+treeNode.tId).unbind().remove();
+    };
 
-    //添加部门
-    $('.addDepart').unbind('click').bind('click',function () {
-        var self = $(this).parent().parent().parent();
-        $('#confim').unbind('click').bind('click',function () {
-            var time = String((new Date()).valueOf());
-            var idName = '#'+ time;
-            var name = $('#departNameText').val();
-            $('#departNameText').val('');
-            self.before(`<div class="panel  collapseFive_Inner">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#Inner"
-                                           href=${idName}>
-                                            ${name}
-                                        </a>
-                                    </h4>
-                                </div>
-
-                                <div id=${time} class="panel panel-collapse collapse ">
-                                    <div class="panel-group" >
-                                        <div class="panel-body">
-                                            <!--2层嵌套折叠-->
-                                            <div class="panel  collapseFive_Inner">
-                                                <div class="panel-heading">
-                                                    <h4 class="panel-title" style="text-align: center">
-                                                        <a href="#" data-toggle="modal" data-target="#myModal" class = "addClass">添加</a>
-                                                    </h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>`);
-            //为新添加的班组中的添加按钮添加绑定事件
-            $('.addClass').unbind('click').bind('click',function () {
-                var self = $(this).parent().parent().parent();
-                addClass(self)
-            });
-            // $('#confim').unbind('click')
-            $('#myModal').modal('toggle')          /*关闭模态框*/
-        })
-    })
-
-
-    //添加班组
-    function addClass(self) {
-        $('#confim').unbind('click').bind('click',function () {
-            var time = String((new Date()).valueOf());
-            var idName = '#'+ time;
-            var name = $('#departNameText').val();
-            $('#departNameText').val('');
-            self.before(`<div class="panel  collapseFive_Inner">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#Inner"
-                                           href=${idName}>
-                                            ${name}
-                                        </a>
-                                    </h4>
-                                </div>
-
-                                <div id=${time} class=" panel-collapse collapse ">
-                                    <div class="panel-group" >
-                                        <div class="panel-body">
-                                            <!--2层嵌套折叠-->
-                                            <div class="panel  collapseFive_Inner">
-                                                <div class="panel-heading">
-                                                    <h4 class="panel-title" style="text-align: center">
-                                                        <a href="#" data-toggle="modal" data-target="#myModal" class = "addPerson">添加</a>
-                                                    </h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>`);
-            //为新添加的班组中的添加按钮添加绑定事件
-            $('.addPerson').unbind('click').bind('click',function (event) {
-                var self = $(this).parent().parent().parent();
-                addPerson(self)
-            });
-            // $('#confim').unbind('click')
-            $('#myModal').modal('toggle')          /*关闭模态框*/
-        })
+    //单击展开
+    function beforeClick(treeId, treeNode) {
+        var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+        zTree.expandNode(treeNode);
     }
 
-//    添加领导 三层嵌套
-    function addPerson(self) {
-        $('#confim').unbind('click').bind('click',function () {
-            var time = String((new Date()).valueOf());
-            var idtime = '#'+ time;
-            var name = $('#departNameText').val();
-            $('#departNameText').val('');
-            self.before(`<div class="panel  collapseFive_Inner">
-<!--                                                 <div class="panel-heading">-->
-                                                    <h4 class="panel-title panel-body layui-row" style="text-align: center">
-                                                    <img src="imgs/person.png" alt="" class = "personalIcon layui-col-md2">
-                                                        <a href="#" class="layui-col-md8">${name}</a>
-                                                            <img src="imgs/delete.png" alt="delIcon"
-                                                                     data-toggle="modal" data-target="#myModaDel" class = "del layui-col-md2" id = ${idtime}>
-                                                    </h4>
-<!--                                                </div>-->
-                                            </div>`);
-            //为新添加的人员绑定删除事件
-            $('.del').unbind('click').bind('click',function () {
-                var self = $(this).parent().parent();
-                Del(self)
-            });
-            // $('#confim').unbind('click')
-            $('#myModal').modal('toggle')          /*关闭模态框*/
+
+    //删除节点
+    function beforeRemove(treeId, treeNode) {
+        $("#modalDel").modal({});   //调用bootstrap模态框
+        $('#modalBody').append("确定删除" + treeNode.name + "?");       //为模态框动态添加内容
+        $('.closeModal,#confirm').unbind('click').bind('click',function (event) {
+            if(event.target.id == 'confirm'){
+                var zTree = $.fn.zTree.getZTreeObj(treeId);
+                zTree.removeNode(treeNode)
+            }
+            $('#modalBody').empty();                /*关闭模态框时将模态框内容置空*/
+            $('#modalDel').modal('toggle')          /*关闭模态框*/
         })
+        return false;
     }
 
-//    删除
-  function Del(self) {
-        $('#confimDel').unbind('click').bind('click',function () {
-            // console.log('querenshanchula')
-            self.remove();
-            // $('#confimDel').unbind('')
-            $('#myModaDel').modal('toggle')          /*关闭模态框*/
-        })
-    }
 
-//    取消模态框 将input内容置空
+    //    取消模态框 将input内容置空
     $('#off').unbind('click').bind('click',function () {
-        $('#departNameText').val('')
+        $('#departNameText').val('');
     });
+
+    //点击人员后将人员信息渲染到右边表格中
+    function ztreeOnclick(event,treeId, treeNode){
+        // $().val(''ahhah)
+        if(treeNode.level == 2){
+            $('#name').val(treeNode.name);
+            $('#idNumber').val(treeNode.身份证号);
+            $('#genderSelect').val(treeNode.性别);
+            $('#phoneNumber').val(treeNode.手机号);
+            $('#jobNumber').val(treeNode.工号);
+            $('#position').val(treeNode.岗位);
+            $('#school').val(treeNode.毕业学校);
+            $('#s_province').val(treeNode.家庭住址.省份);
+            $('#s_city').append($('<option>', {
+                text: treeNode.家庭住址.市,
+                selected: true
+            }));
+            $('#eduBack').val(treeNode.最高学历);
+            $('#s_province1').val(treeNode.籍贯.省份);
+            $('#s_city1').append($('<option>', {
+                text: treeNode.籍贯.市,
+                selected: true
+            }));
+            $("input[type=radio][name=options]").val([treeNode.政治面貌]);
+            $('#entryTime').val(treeNode.入职时间)
+        }
+    }
+
+    //点击保存按钮将修改的数据保存到localStorage中
+    // $('#archivesSave').
 
 
     //工资管理界面导入人员名单
