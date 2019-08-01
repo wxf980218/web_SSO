@@ -29,14 +29,14 @@ ul.ztree{
     width: 280px;
 }
 ul.ztree{
-    height: 400px;
+    height: 600px;
     background-color: transparent;
 }
 #mainContainer{
     margin-top: 20px;
 }
 
-/*导航条设计*/
+/*ztree导航条设计*/
 ul.ztree::-webkit-scrollbar {
     width: 5px;
 }
@@ -45,8 +45,10 @@ ul.ztree::-webkit-scrollbar-thumb {
     -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.6);
      background: rgba(0,0,0,1);
 }
+
 .leftNavbar::-webkit-scrollbar {
     width: 5px;
+    height: 5px;
 /*    如何实现导航条右移*/
 
 }

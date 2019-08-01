@@ -11,20 +11,6 @@
     <link rel="stylesheet" href="css/index.css">
 </head>
 <style>
-    /*ztree*/
-    ul.ztree{
-        width: 280px;
-    }
-    ul.ztree{
-        height: 400px;
-        background-color: transparent;
-    }
-
-    /*导航条设计*/
-    ul.ztree{
-        border: none!important;
-    }
-
     /* 表格CSS*/
     .item{
         font-size: 20px;
@@ -34,11 +20,17 @@
         font-size: 25px;
         text-align: center;
     }
-    td{
-        width: 50px;
+    .item{
+        height: 150px;
+    }
+    .item-td{
+        width: 100px;
+        height: 30px;
     }
     th{
+        font-size: 20px;
         text-align: center;
+        font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
     }
     .sum{
         text-align: center;
@@ -48,7 +40,6 @@
 
     }
     table{
-        width: 1500px;
         text-align: center;
         margin-top: 35px;
     }
@@ -56,7 +47,6 @@
     input{
         border: none;
         text-align:center;
-
     }
     .content{
         background-color: transparent;
@@ -90,10 +80,10 @@
                         </div>
                         <div class="navbar-container">
                             <ul class="nav navbar-nav">
-                                <li class="active"><a href="archivesManagement.html">档案管理</a></li>
-                                <li><a href="wageManagement_theImportInterface.html">工资管理</a></li>
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <li><a href="archivesManagement.html" style="font-size: 18px;">档案管理</a></li>
+                                <li><a href="wageManagement_theImportInterface.html" style="font-size: 18px;">工资管理</a></li>
+                                <li class="dropdown active">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-size: 18px;">
                                         考评管理 <b class="caret"></b>
                                     </a>
                                     <ul class="dropdown-menu">
@@ -110,7 +100,7 @@
                             <div id="navbar" class="navbar-collapse collapse">
                                 <ul class="nav navbar-nav navbar-right">
                                     <li><a href="#"><img src="imgs/个人设置.png"alt="个人设置"></a></li>
-                                    <li><a href="#">英文</a></li>
+                                    <li><a href="#" style="font-size: 18px;">英文</a></li>
                                 </ul>
                                 <form class="navbar-form navbar-right">
                                     <input type="text" class="form-control" placeholder="Search...">
@@ -179,179 +169,201 @@
 
                 </div>
             </div>
-            <div class="layui-row">
-<!--                table表-->
-                <div id="test" class="table-responsive" style="padding: 0;overflow:auto;">
-                    <table id="resourceTable" style="min-width:1500px;" class="table table-nowrap" contenteditable="false">
-                            <thead>
-                            <tr >
-                                <th colspan="2" rowspan="2" class="title" style="background-color: rgba(57,67,73,0.2)">考核项目</th>
-                                <th colspan="4" class="title" style="background-color:rgb(0,150,136)">考核得分</th>
-                            </tr>
-                            <tr style="background-color:rgba(118,28,25,0.6)">
-                                <th>直接领导考核</th>
-                                <th>分管领导考核</th>
-                                <th>权重</th>
-                                <th>备注</th>
-                            </tr>
-                            </thead>
 
-                            <tbody>
-                            <tr>
-                                <td rowspan="5" class="item" id="template">个人素质</td>
-                                <td>1、品德修养、礼貌礼仪、个人仪容仪表</td>
-                                <td><input type="text" id="11z" class="content"/></td>
-                                <td><input type="text" id="11j" class="content" /></td>
-                                <td>20%</td>
-                                <td><input type="text" id="11bei" class="content"/></td>
-                            </tr>
-                            <tr>
-                                <td>2、有团队合作意识、能以集体利益为重</td>
-                                <td><input type="text" id="12z" class="content"/></td>
-                                <td><input type="text" id="12j" class="content"/></td>
-                                <td>30%</td>
-                                <td><input type="text" id="12bei" class="content" /></td>
-                            </tr>
-                            <tr>
-                                <td>3、沟通能力和亲和力</td>
-                                <td><input type="text" id="13z" class="content"/></td>
-                                <td><input type="text" id="13j" class="content"/></td>
-                                <td>25%</td>
-                                <td><input type="text" id="13bei" class="content"/></td>
-                            </tr>
-                            <tr>
-                                <td>4、学习和总结能力</td>
-                                <td><input type="text" id="14z" class="content"/></td>
-                                <td><input type="text" id="14j" class="content"/></td>
-                                <td>25%</td>
-                                <td><input type="text" id="14bei" class="content"/></td>
-                            </tr>
-                            <tr class="sum">
-                                <td >合计</td>
-                                <td><input type="text" id="15z" class="remark" disabled="disabled"/></td>
-                                <td><input type="text" id="15j" class="remark" disabled="disabled"/></td>
-                                <td>100%</td>
-                                <td><input type="text" id="15bei" class="remark" disabled="disabled"/></td>
-                            </tr>
-                            <tr>
-                                <td rowspan="5" class="item">工作态度</td>
-                                <td>1、出勤情况</td>
-                                <td><input type="text" id="21z" class="content"/></td>
-                                <td><input type="text" id="21j" class="content"/></td>
-                                <td>20%</td>
-                                <td><input type="text" id="21bei" class="content"/></td>
-                            </tr>
-                            <tr>
-                                <td>2、对待工作责任心</td>
-                                <td><input type="text" id="22z" class="content"/></td>
-                                <td><input type="text" id="22j" class="content"/></td>
-                                <td>30%</td>
-                                <td><input type="text" id="22bei" class="content"/></td>
-                            </tr>
-                            <tr>
-                                <td>3、对待工作热情度</td>
-                                <td><input type="text" id="23z" class="content"/></td>
-                                <td><input type="text" id="23j" class="content"/></td>
-                                <td>25%</td>
-                                <td><input type="text" id="23bei" class="content"/></td>
-                            </tr>
-                            <tr>
-                                <td>4、能主动完成工作任务</td>
-                                <td><input type="text" id="24z" class="content"/></td>
-                                <td><input type="text" id="24j" class="content"/></td>
-                                <td>25%</td>
-                                <td><input type="text" id="24bei" class="content"/></td>
-                            </tr>
-                            <tr class="sum">
-                                <td >合计</td>
-                                <td><input type="text" id="25z" class="remark" disabled="disabled"/></td>
-                                <td><input type="text" id="25j" class="remark" disabled="disabled"/></td>
-                                <td>100%</td>
-                                <td><input type="text" id="25bei" class="remark" disabled="disabled"/></td>
-                            </tr>
-                            <tr>
-                                <td rowspan="5" class="item">专业知识</td>
-                                <td>1、专业业务知识</td>
-                                <td><input type="text" id="31z" class="content"/></td>
-                                <td><input type="text" id="31j" class="content"/></td>
-                                <td>20%</td>
-                                <td><input type="text" id="31bei" class="content"/></td>
-                            </tr>
-                            <tr>
-                                <td>2、相关专业知识</td>
-                                <td><input type="text" id="32z" class="content"/></td>
-                                <td><input type="text" id="32j" class="content"/></td>
-                                <td>30%</td>
-                                <td><input type="text" id="32bei" class="content"/></td>
-                            </tr>
-                            <tr>
-                                <td>3、参加各种专业知识培训</td>
-                                <td><input type="text" id="33z" class="content"/></td>
-                                <td><input type="text" id="33j" class="content"/></td>
-                                <td>25%</td>
-                                <td><input type="text" id="33bei" class="content"/></td>
-                            </tr>
-                            <tr>
-                                <td>4、不断学习专业知识的技能</td>
-                                <td><input type="text" id="34z" class="content"/></td>
-                                <td><input type="text" id="34j" class="content"/></td>
-                                <td>25%</td>
-                                <td><input type="text" id="34bei" class="content"/></td>
-                            </tr>
-                            <tr class="sum">
-                                <td>合计</td>
-                                <td><input type="text" id="35z" class="remark" disabled="disabled"/></td>
-                                <td><input type="text" id="35j" class="remark" disabled="disabled"/></td>
-                                <td>100%</td>
-                                <td><input type="text" id="35bei" class="remark" disabled="disabled"/></td>
-                            </tr>
-                            <tr>
-                                <td rowspan="5" class="item">工作能力</td>
-                                <td>1、能保证保量完成工作任务</td>
-                                <td><input type="text" id="41z" class="content"/></td>
-                                <td><input type="text" id="41j" class="content"/></td>
-                                <td>20%</td>
-                                <td><input type="text" id="41bei" class="content"/></td>
-                            </tr>
-                            <tr>
-                                <td>2、能正确理解工作，主动调动各方面资源以达成目标  </td>
-                                <td><input type="text" id="42z" class="content"/></td>
-                                <td><input type="text" id="42j" class="content"/></td>
-                                <td>30%</td>
-                                <td><input type="text" id="42bei" class="content"/></td>
-                            </tr>
-                            <tr>
-                                <td>3、工作认真、细致，考虑问题深入</td>
-                                <td><input type="text" id="43z" class="content"/></td>
-                                <td><input type="text" id="43j" class="content"/></td>
-                                <td>25%</td>
-                                <td><input type="text" id="43bei" class="content"/></td>
-                            </tr>
-                            <tr>
-                                <td>4、 对问题认识全面，有系统性</td>
-                                <td><input type="text" id="44z" class="content"/></td>
-                                <td><input type="text" id="44j" class="content"/></td>
-                                <td>25%</td>
-                                <td><input type="text" id="44bei" class="content"/></td>
-                            </tr>
-                            <tr class="sum">
-                                <td>合计</td>
-                                <td><input type="text" id="45z" class="remark" disabled="disabled"/></td>
-                                <td><input type="text" id="45j" class="remark" disabled="disabled"/></td>
-                                <td>100%</td>
-                                <td><input type="text" id="45bei" class="remark" disabled="disabled"/></td>
-                            </tr>
-                            <tr style="font-size: 20px;background-color:rgba(40,109,164,0.6)">
-                                <td rowspan="2" colspan="2">统计</td>
-                                <td rowspan="2" ><input type="text" id="5z" class="sumRemark" disabled="disabled"/></td>
-                                <td rowspan="2" ><input type="text" id="5j" class="sumRemark" disabled="disabled"/></td>
-                                <td rowspan="2"></td>
-                                <td rowspan="2"><input type="text" id="5bei" class="sumRemark" disabled="disabled"/></td>
-                            </tr>
-                            </tbody>
-                    </table>
-                </div>
-            </div>
+
+                    <div class="layui-row">
+                        <!--                table表-->
+                        <div id="test" class="leftNavbar" style="overflow-y: scroll;overflow-x: scroll;height: 600px;" >
+                            <table id="resourceTable"  class="table table-hover table-condensed" contenteditable="false" >
+                                <thead>
+                                <tr >
+                                    <th colspan="2" rowspan="2" class="title" style="background-color: rgba(57,67,73,0.2)">考核项目</th>
+                                    <th colspan="4" class="title" style="background-color:rgb(0,150,136)">考核得分</th>
+                                </tr>
+                                <tr style="background-color:rgba(118,28,25,0.6)">
+                                    <th>直接领导考核</th>
+                                    <th>分管领导考核</th>
+                                    <th>权重</th>
+                                    <th>备注</th>
+                                </tr>
+                                </thead>
+
+                                <tbody>
+                                <tr>
+                                    <!--                                1、品德修养、礼貌礼仪、个人仪容仪表
+                                    团队合作意识、能以集体利益为重
+                                    通能力和亲和力
+                                    习和总结能力-->
+                                    <td rowspan="5" class="item" id="template">个人素质</td>
+                                    <td class = "item-td">1、品</td>
+                                    <td class = "item-td"><input type="text" id="11z" class="content"/></td>
+                                    <td class = "item-td"><input type="text" id="11j" class="content" /></td>
+                                    <td class = "item-td">20%</td>
+                                    <td class = "item-td"><input type="text" id="11bei" class="content"/></td>
+                                </tr>
+                                <tr>
+                                    <td class = "item-td">2、有</td>
+                                    <td class = "item-td"><input type="text" id="12z" class="content"/></td>
+                                    <td class = "item-td"><input type="text" id="12j" class="content"/></td>
+                                    <td class = "item-td">30%</td>
+                                    <td class = "item-td"><input type="text" id="12bei" class="content" /></td>
+                                </tr>
+                                <tr>
+                                    <td class = "item-td">3、沟</td>
+                                    <td class = "item-td"><input type="text" id="13z" class="content"/></td>
+                                    <td class = "item-td"><input type="text" id="13j" class="content"/></td>
+                                    <td class = "item-td">25%</td>
+                                    <td class = "item-td"><input type="text" id="13bei" class="content"/></td>
+                                </tr>
+                                <tr>
+                                    <td class = "item-td">4、学</td>
+                                    <td class = "item-td"><input type="text" id="14z" class="content"/></td>
+                                    <td class = "item-td"><input type="text" id="14j" class="content"/></td>
+                                    <td class = "item-td">25%</td>
+                                    <td class = "item-td"><input type="text" id="14bei" class="content"/></td>
+                                </tr>
+                                <tr class="sum">
+                                    <td class = "item-td">合计</td>
+                                    <td class = "item-td"><input type="text" id="15z" class="remark" disabled="disabled"/></td>
+                                    <td class = "item-td"><input type="text" id="15j" class="remark" disabled="disabled"/></td>
+                                    <td class = "item-td">100%</td>
+                                    <td class = "item-td"><input type="text" id="15bei" class="remark" disabled="disabled"/></td>
+                                </tr>
+                                <tr>
+                                    <!--                                勤情况
+                                    待工作责任心
+                                    待工作热情度
+                                    主动完成工作任务
+                                    -->
+                                    <td rowspan="5" class="item">工作态度</td>
+                                    <td class = "item-td">1、出</td>
+                                    <td class = "item-td"><input type="text" id="21z" class="content"/></td>
+                                    <td class = "item-td"><input type="text" id="21j" class="content"/></td>
+                                    <td class = "item-td">20%</td>
+                                    <td class = "item-td"><input type="text" id="21bei" class="content"/></td>
+                                </tr>
+                                <tr>
+                                    <td class = "item-td">2、对</td>
+                                    <td class = "item-td"><input type="text" id="22z" class="content"/></td>
+                                    <td class = "item-td"><input type="text" id="22j" class="content"/></td>
+                                    <td class = "item-td">30%</td>
+                                    <td class = "item-td"><input type="text" id="22bei" class="content"/></td>
+                                </tr>
+                                <tr>
+                                    <td class = "item-td">3、对</td>
+                                    <td class = "item-td"><input type="text" id="23z" class="content"/></td>
+                                    <td class = "item-td"><input type="text" id="23j" class="content"/></td>
+                                    <td class = "item-td">25%</td>
+                                    <td class = "item-td"><input type="text" id="23bei" class="content"/></td>
+                                </tr>
+                                <tr>
+                                    <td class = "item-td">4、能</td>
+                                    <td class = "item-td"><input type="text" id="24z" class="content"/></td>
+                                    <td class = "item-td"><input type="text" id="24j" class="content"/></td>
+                                    <td class = "item-td">25%</td>
+                                    <td class = "item-td"><input type="text" id="24bei" class="content"/></td>
+                                </tr>
+                                <tr class="sum">
+                                    <td class = "item-td">合计</td>
+                                    <td class = "item-td"><input type="text" id="25z" class="remark" disabled="disabled"/></td>
+                                    <td class = "item-td"><input type="text" id="25j" class="remark" disabled="disabled"/></td>
+                                    <td class = "item-td">100%</td>
+                                    <td class = "item-td"><input type="text" id="25bei" class="remark" disabled="disabled"/></td>
+                                </tr>
+                                <tr>
+                                    <!--                                业业务知识
+                                    关专业知识
+                                    加各种专业知识培训
+                                    断学习专业知识的技能
+                                    -->
+                                    <td rowspan="5" class="item">专业知识</td>
+                                    <td class = "item-td">1、专</td>
+                                    <td class = "item-td"><input type="text" id="31z" class="content"/></td>
+                                    <td class = "item-td"><input type="text" id="31j" class="content"/></td>
+                                    <td class = "item-td">20%</td>
+                                    <td class = "item-td"><input type="text" id="31bei" class="content"/></td>
+                                </tr>
+                                <tr>
+                                    <td class = "item-td">2、相</td>
+                                    <td class = "item-td"><input type="text" id="32z" class="content"/></td>
+                                    <td class = "item-td"><input type="text" id="32j" class="content"/></td>
+                                    <td class = "item-td">30%</td>
+                                    <td class = "item-td"><input type="text" id="32bei" class="content"/></td>
+                                </tr>
+                                <tr>
+                                    <td class = "item-td">3、参</td>
+                                    <td class = "item-td"><input type="text" id="33z" class="content"/></td>
+                                    <td class = "item-td"><input type="text" id="33j" class="content"/></td>
+                                    <td class = "item-td">25%</td>
+                                    <td class = "item-td"><input type="text" id="33bei" class="content"/></td>
+                                </tr>
+                                <tr>
+                                    <td class = "item-td">4、不</td>
+                                    <td class = "item-td"><input type="text" id="34z" class="content"/></td>
+                                    <td class = "item-td"><input type="text" id="34j" class="content"/></td>
+                                    <td class = "item-td">25%</td>
+                                    <td class = "item-td"><input type="text" id="34bei" class="content"/></td>
+                                </tr>
+                                <tr class="sum">
+                                    <td class = "item-td">合计</td>
+                                    <td class = "item-td"><input type="text" id="35z" class="remark" disabled="disabled"/></td>
+                                    <td class = "item-td"><input type="text" id="35j" class="remark" disabled="disabled"/></td>
+                                    <td class = "item-td">100%</td>
+                                    <td class = "item-td"><input type="text" id="35bei" class="remark" disabled="disabled"/></td>
+                                </tr>
+                                <tr>
+                                    <!--                               保证保量完成工作任务
+                                     正确理解工作，主动调动各方面资源以达成目标
+                                     作认真、细致，考虑问题深入
+                                     问题认识全面，有系统性-->
+                                    <td rowspan="5" class="item">工作能力</td>
+                                    <td class = "item-td">1、能</td>
+                                    <td class = "item-td"><input type="text" id="41z" class="content"/></td>
+                                    <td class = "item-td"><input type="text" id="41j" class="content"/></td>
+                                    <td class = "item-td">20%</td>
+                                    <td class = "item-td"><input type="text" id="41bei" class="content"/></td>
+                                </tr>
+                                <tr>
+                                    <td class = "item-td">2、能  </td>
+                                    <td class = "item-td"><input type="text" id="42z" class="content"/></td>
+                                    <td class = "item-td"><input type="text" id="42j" class="content"/></td>
+                                    <td class = "item-td">30%</td>
+                                    <td class = "item-td"><input type="text" id="42bei" class="content"/></td>
+                                </tr>
+                                <tr>
+                                    <td class = "item-td">3、工</td>
+                                    <td class = "item-td"><input type="text" id="43z" class="content"/></td>
+                                    <td class = "item-td"><input type="text" id="43j" class="content"/></td>
+                                    <td class = "item-td">25%</td>
+                                    <td class = "item-td"><input type="text" id="43bei" class="content"/></td>
+                                </tr>
+                                <tr>
+                                    <td class = "item-td">4、 对</td>
+                                    <td class = "item-td"><input type="text" id="44z" class="content"/></td>
+                                    <td class = "item-td"><input type="text" id="44j" class="content"/></td>
+                                    <td class = "item-td">25%</td>
+                                    <td class = "item-td"><input type="text" id="44bei" class="content"/></td>
+                                </tr>
+                                <tr class="sum">
+                                    <td class = "item-td">合计</td>
+                                    <td class = "item-td"><input type="text" id="45z" class="remark" disabled="disabled"/></td>
+                                    <td class = "item-td"><input type="text" id="45j" class="remark" disabled="disabled"/></td>
+                                    <td class = "item-td">100%</td>
+                                    <td class = "item-td"><input type="text" id="45bei" class="remark" disabled="disabled"/></td>
+                                </tr>
+                                <tr style="font-size: 20px;background-color:rgba(40,109,164,0.6)">
+                                    <td rowspan="2" colspan="2" class = "item-td">统计</td>
+                                    <td rowspan="2" class = "item-td"><input type="text" id="5z" class="sumRemark" disabled="disabled"/></td>
+                                    <td rowspan="2" class = "item-td"><input type="text" id="5j" class="sumRemark" disabled="disabled"/></td>
+                                    <td rowspan="2" class = "item-td"></td>
+                                    <td rowspan="2" class = "item-td"><input type="text" id="5bei" class="sumRemark" disabled="disabled"/></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+
         </div>
     </div>
 </div>
@@ -402,20 +414,11 @@
 <script src="layui-v2.5.4/layui/layui.js"></script>
 <script type="text/javascript" src="ztree/js/jquery.ztree.core.js"></script>
 <script type="text/javascript" src="ztree/js/jquery.ztree.exedit.js"></script>
-<script src="js/index.js"></script>
+<!--<script src="js/index.js"></script>-->
 <script src="js/addTable.js"></script>
 
-<script type="text/html" id="toolbarDemo">
-    <div class="layui-btn-container">
-        <button class="layui-btn layui-btn-sm" lay-event="getCheckData">获取选中行数据</button>
-        <button class="layui-btn layui-btn-sm" lay-event="getCheckLength">获取选中数目</button>
-        <button class="layui-btn layui-btn-sm" lay-event="isAll">验证是否全选</button>
-    </div>
-</script>
-
-<script type="text/html" id="barDemo">
-    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
-    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+<script>
+    $('.content').attr("disabled",true);
 </script>
 
 <script>
@@ -423,6 +426,12 @@
     layui.use(['layer', 'form'], function(){
         var layer = layui.layer
             ,form = layui.form;
+        // layer.open({
+        //    type:1,
+        //    content:$('#test'),
+        //     anim:5,
+        //     maxmin:true
+        // });
     });
 
     //动画样式
