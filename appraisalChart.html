@@ -13,8 +13,12 @@
     <script src="js/bootstrap.js"></script>
     <script src="layui-v2.5.4/layui/layui.js"></script>
     <script src="echarts/dist/echarts.min.js"></script>
+    <script src="js/addTable.js"></script>
 </head>
 <style>
+    .glyphicon-picture{
+        font-size: 500px;
+    }
 </style>
 <body>
 <div class="layui-container">
@@ -44,13 +48,12 @@
                                     考评管理 <b class="caret"></b>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="appraisalChart.html">月考评图</a></li>
-                                    <li><a href="appraisalManagement.html">季度考评图</a></li>
-                                    <li><a href="#">半年考评图</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="#">年度考评图</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="#">另一个分离的链接</a></li>
+                                    <ol><a href="appraisalManagement.html">考评管理</a></ol>
+                                    <ol><a href="appraisalChart.html">月考评图</a></ol>
+                                    <ol><a href="">季度考评图</a></ol>
+                                    <ol class="divider"></ol>
+                                    <ol><a href="#">半年考评图</a></ol>
+                                    <ol><a href="#">一年考评图</a></ol>
                                 </ul>
                             </li>
                         </ul>
@@ -115,78 +118,7 @@
             </div>
             <div class="layui-row">
 <!--                插入图表-->
-                <div id="main" style="width: 750px;height:600px;background-color: rgba(51,51,51,0.1); margin-top: 20px;">
-                    <script type="text/javascript">
-                        // 基于准备好的dom，初始化echarts实例
-                        var myChart = echarts.init($("#main").get(0));  //jQuery对象转换成dom对象
-
-                        var xAxisData = [];  //x轴数据
-                        var data1 = [];
-                        var data2 = [];
-                        for (var i = 0; i < 100; i++) {
-                            xAxisData.push('类目' + i);
-                            data1.push((Math.sin(i / 5) * (i / 5 -10) + i / 6) * 5);
-                            data2.push((Math.cos(i / 5) * (i / 5 -10) + i / 6) * 5);
-                        }
-
-                        // 指定图表的配置项和数据
-                        var option = {
-                            title: {
-                                text: '考评管理——趋势图'
-                            },
-                            legend: {
-                                data: ['数据1', '数据2'],
-                                align: 'left'
-                            },
-                            toolbox: {
-                                // 右上方功能键,
-                                feature: {
-                                    //数据显示
-                                    magicType: {
-                                        type: ['stack', 'tiled']
-                                    },
-                                    //数据视图
-                                    dataView: {},
-                                    //保存图像
-                                    saveAsImage: {
-                                        pixelRatio: 2
-                                    }
-                                }
-                            },
-                            tooltip: {},
-                            xAxis: {
-                                data: xAxisData,
-                                silent: false,
-                                splitLine: {
-                                    show: false
-                                }
-                            },
-                            yAxis: {
-                            },
-                            series: [{
-                                name: '数据1',
-                                type: 'bar',
-                                data: data1,
-                                animationDelay: function (idx) {
-                                    return idx * 10;
-                                }
-                            }, {
-                                name: '数据2',
-                                type: 'bar',
-                                data: data2,
-                                animationDelay: function (idx) {
-                                    return idx * 10 + 100;
-                                }
-                            }],
-                            animationEasing: 'elasticOut',
-                            animationDelayUpdate: function (idx) {
-                                return idx * 5;
-                            }
-                        };
-
-                        // 使用刚指定的配置项和数据显示图表。
-                        myChart.setOption(option);
-                    </script>
+                <div id="main" style="width: 750px;height:600px; margin-top: 20px;"><span class="glyphicon glyphicon-picture" style="margin-left: 100px"></span>
                 </div>
 
             </div>
@@ -238,7 +170,6 @@
 
 <script type="text/javascript" src="ztree/js/jquery.ztree.core.js"></script>
 <script type="text/javascript" src="ztree/js/jquery.ztree.exedit.js"></script>
-<script src = "js/index.js"></script>
 
 
 <script>
@@ -269,17 +200,6 @@
         });
     });
 
-    //日期
-    layui.use('laydate', function(){
-        var laydate = layui.laydate;
-
-        //执行一个laydate实例
-        laydate.render({
-            elem: '#test1' //指定元素
-            ,type: 'month'
-        });
-    });
 </script>
-
 </body>
 </html>
