@@ -44,7 +44,7 @@
                     <div class="navbar-container">
                         <ul class="nav navbar-nav">
                             <li class="active"><a href="archivesManagement.html">档案管理</a></li>
-                            <li><a href="wageManage.html">工资管理</a></li>
+                            <li><a href="wageManagement_theImportInterface.html">工资管理</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     考评管理 <b class="caret"></b>
@@ -84,16 +84,16 @@
                         <!--功能键-->
                         <div class="anotherSearch layui-row">
                             <!--搜索-->
-                            <input type="text" class="form-control layui-col-md8" placeholder="Search...">
+                            <input type="text" class="form-control layui-col-md8" placeholder="名字或工号" id = "searchContent">
                             <!--完成-->
                             <div class = "animal layui-col-md2 layui-col-md-offset2">
                                 <ul class="site-doc-icon site-doc-anim">
-                                    <img class="layui-anim" data-anim="layui-anim-scaleSpring" src="imgs/confirm.png" alt="">
+                                    <img class="layui-anim" data-anim="layui-anim-scaleSpring" src="imgs/confirm.png" alt="" id = "searchConfirm">
                                 </ul>
                             </div>
                         </div>
 
-                        <!--滚动条-->
+                        <!--树状导航-->
                         <div class="leftNavbar">
                             <div class="panel-group layui-col-space5" id="accordion">
                                 <div class="content_wrap">
@@ -129,26 +129,26 @@
                         </tr>
                         <tr>
                             <td>姓名</td>
-                            <td><input class = "form-control"type="text" id = "name"></td>
+                            <td><input class = "form-control"type="text" id = "name" disabled = true></td>
                             <td>身份证号</td>
-                            <td><input class = "form-control" type="text" id = "idNumber"></td>
+                            <td><input class = "form-control" type="text" id = "idNumber" disabled = true></td>
                         </tr>
                         <tr>
                             <td>性别</td>
                             <td>
-                                <select class="selectpicker form-control" style="text-align: center" id = "genderSelect">
+                                <select class="selectpicker form-control" style="text-align: center" id = "genderSelect" disabled="true">
                                     <option>男</option>
                                     <option>女</option>
                                 </select>
                             </td>
                             <td>手机号</td>
-                            <td><input class = "form-control" type="text" id = "phoneNumber"></td>
+                            <td><input class = "form-control" type="text" id = "phoneNumber" disabled = true></td>
                         </tr>
                         <tr>
                             <td>工号</td>
-                            <td><input class = "form-control" type="text" id = "jobNumber"></td>
+                            <td><input class = "form-control" type="text" id = "jobNumber" disabled = true></td>
                             <td>岗位</td>
-                            <td><input class = "form-control" type="text" id = "position"></td>
+                            <td><input class = "form-control" type="text" id = "position" disabled = true></td>
                         </tr>
                         <!--                其他信息-->
                         <tr>
@@ -159,15 +159,15 @@
                         </tr>
                         <tr>
                             <td>毕业学校</td>
-                            <td><input class = "form-control"type="text" id = "school"></td>
+                            <td><input class = "form-control"type="text" id = "school" disabled = true></td>
                             <td>家庭住址</td>
                             <td colspan = "2">
                                 <div class = "layui-row">
                                     <div class = "layui-col-md4">
-                                        <select name="s_province" id="s_province" class="inpt san form-control" ></select>
+                                        <select name="s_province" id="s_province" class="inpt san form-control" disabled="true"></select>
                                     </div>
                                     <div class = "layui-col-md8">
-                                        <select name="s_city" id="s_city" class="inpt san form-control">
+                                        <select name="s_city" id="s_city" class="inpt san form-control" disabled="true">
                                             <option>地级市</option>
                                         </select>
                                     </div>
@@ -178,7 +178,7 @@
                         <tr>
                             <td>最高学历</td>
                             <td>
-                                <select class="selectpicker form-control" id = "eduBack">
+                                <select class="selectpicker form-control" id = "eduBack" disabled="true">
                                     <option>高中</option>
                                     <option>本科</option>
                                     <option>硕士</option>
@@ -189,10 +189,10 @@
                             <td colspan = "2">
                                 <div class = "layui-row">
                                     <div class = "layui-col-md4">
-                                        <select name="s_province" id="s_province1" class="inpt san form-control" ></select>
+                                        <select name="s_province" id="s_province1" class="inpt san form-control" disabled="true"></select>
                                     </div>
                                     <div class = "layui-col-md8">
-                                        <select name="s_city" id="s_city1" class="inpt san form-control">
+                                        <select name="s_city" id="s_city1" class="inpt san form-control" disabled="true">
                                             <option>地级市</option>
                                         </select>
                                     </div>
@@ -203,13 +203,13 @@
                             <td>政治面貌</td>
                             <td>
                                 <label  class="btn " id = "politicsBack">
-                                    <input  type="radio" name="options" value = "群众"> 群众
+                                    <input  type="radio" name="options" value = "群众" disabled = true> 群众
                                 </label>
                                 <label  class="btn ">
-                                    <input  type="radio" name="options" value = "共青团员"> 共青团员
+                                    <input  type="radio" name="options" value = "共青团员" disabled = true> 共青团员
                                 </label>
                                 <label  class="btn ">
-                                    <input  type="radio" name="options" value = "党员"> 党员
+                                    <input  type="radio" name="options" value = "党员" disabled = true> 党员
                                 </label>
                             </td>
                             <td>入职日期</td>
@@ -218,7 +218,7 @@
                                 <div class = "layui-row">
                                     <div class="layui-inline layui-col-md12">
                                         <div class="layui-input-inline">
-                                            <input type="text" class="layui-input form-control" id="entryTime" placeholder="yyyy-MM-dd">
+                                            <input type="text" class="layui-input form-control" id="entryTime" placeholder="yyyy-MM-dd" disabled = true>
                                         </div>
                                     </div>
                                 </div>
@@ -226,13 +226,12 @@
                         </tr>
                         <tr>
                             <td colspan = "5" id = "conf">
-                                <!--                修改-->
                                 <div class="layui-col-lg2 layui-col-lg-offset2">
                                     <button type="button" class="layui-btn layui-btn-warm" style="height: 40px;" id = "archivesChange">修改</button>
                                 </div>
                                 <!--                保存-->
                                 <div class="layui-col-lg2 layui-col-lg-offset2">
-                                    <button type="button" class="layui-btn layui-btn-normal" style="height: 40px;" id = "archivesSave">保存</button>
+                                    <button type="button" class="layui-btn layui-btn-normal" style="height: 40px;" id = "archivesSave" data-toggle="modal" data-target="#modalSave">保存</button>
                                 </div>
                             </td>
                         </tr>
@@ -282,6 +281,27 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal" class = "closeModal">取消</button>
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" id = "confirm">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--保存成功提示框-->
+<div class="modal fade" id="modalSave">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">确认删除</h4>
+            </div>
+            <div class="modal-body">
+                <p>是否保存？</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" class = "closeModal">取消</button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" id = "saveConfirm">确定</button>
             </div>
         </div>
     </div>

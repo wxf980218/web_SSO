@@ -5,9 +5,9 @@
 
 /*档案管理界面的CSS代码*/
 
-/*.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus{*/
-/*    height: 55px;*/
-/*}*/
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus{
+    height: 50px;
+}
 h4.panel-title{
     text-align: center;
 }
@@ -23,21 +23,11 @@ ul.ztree{
     margin-top: 20px;
 }
 
-/*导航条设计*/
+/*档案管理导航条设计*/
 ul.ztree::-webkit-scrollbar {
     width: 5px;
 }
 ul.ztree::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.6);
-     background: rgba(0,0,0,1);
-}
-.leftNavbar::-webkit-scrollbar {
-    width: 5px;
-/*    如何实现导航条右移*/
-
-}
-.leftNavbar::-webkit-scrollbar-thumb {
     border-radius: 10px;
     -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.6);
      background: rgba(0,0,0,1);
@@ -107,7 +97,9 @@ a:hover{
     border-radius: 10px 10px 0 0 ;
     background-color: #2aabd2;
 }
-
+#rightMain #name{
+    disabled: disabled;
+}
 /*表格设计*/
 table{
     text-align: center;
@@ -131,12 +123,19 @@ table .form-control{
     height: 44px;
 }
 select.selectpicker.form-control{
-    padding-left: 110px;
+    padding-left: 83px;
     border-style: none!important;
     border-radius: 0;
 }
 table #conf{
     height: 73px;
+}
+.btn{
+    padding: 0;
+}
+/*设置不可编辑状态下的背景色为透明*/
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control{
+    background-color: transparent;
 }
 /*    上传图片*/
 #demo1.layui-upload-img{
@@ -157,4 +156,22 @@ table #conf{
 #s_city,#s_city1{
     border: transparent;
     float: left;
+}
+
+
+
+/*工资管理*/
+/*工资管理导航条*/
+ul.ztreeCkeck{
+    height: 362px;
+    /*background-color: red;*/
+    overflow-x: scroll;
+}
+ul.ztreeCkeck::-webkit-scrollbar {
+    width: 5px;
+}
+ul.ztreeCkeck::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.6);
+     background: rgba(0,0,0,1);
 }
