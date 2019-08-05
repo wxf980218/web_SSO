@@ -7,9 +7,15 @@ $(function(){
             showLine: false,
             selectedMulti: false,
             dblClickExpand: false,
+<<<<<<< HEAD
             addHoverDom: addHoverDom,
             removeHoverDom: removeHoverDom,
             // dblClickExpand: false,
+=======
+            addHoverDom: addHoverDom,   //增加
+            removeHoverDom: removeHoverDom, //删除
+            dblClickExpand: false,
+>>>>>>> 3968f3c10ccf5f09c0e08a0d0727f90af013420f
         },
         data: {
             simpleData: {
@@ -37,7 +43,7 @@ $(function(){
     var zNodes = JSON.parse(localStorage.getItem('cmts') || '[]');         /*从localStorage获取数据*/
 
     $(document).ready(function(){
-        $.fn.zTree.init($("#treeDemo"), setting, zNodes);
+        $.fn.zTree.init($("#treeDemo"), setting, zNodes);  //初始化
     });
 
     
@@ -46,7 +52,7 @@ $(function(){
         var newId = (new Date()).valueOf()                     //生产时间戳作为新节点的id
         var sObj = $("#" + treeNode.tId + "_span");
         if (treeNode.editNameFlag || $("#addBtn_"+treeNode.tId).length>0) return;
-        var addStr = "<span class='button add' id='addBtn_" + treeNode.tId
+        var addStr = "<span class='button add' id='addBtn_" + treeNode.tId //id
             + "' title='添加' onfocus='this.blur();'></span>";
         sObj.after(addStr);
         var btn = $("#addBtn_"+treeNode.tId);
@@ -63,15 +69,21 @@ $(function(){
                     zTree.selectNode(zTree.getNodeByParam("id",newId ),true);                      //设置结点为选中状态
                     ztreeOnclick(event,'treeDemo',zTree.getNodeByParam("id",newId ));                //将被选中的结点信息渲染到右边表格
                 }
+<<<<<<< HEAD
                 $('#addInput').val('')
                 $('#modalAdd').modal('toggle')          /*关闭模态框*/
             })
+=======
+            });
+>>>>>>> 3968f3c10ccf5f09c0e08a0d0727f90af013420f
             return false;
         });
-    };
+    }
+
+
     function removeHoverDom(treeId, treeNode) {
         $("#addBtn_"+treeNode.tId).unbind().remove();
-    };
+    }
 
     //单击展开
     function beforeClick(treeId, treeNode) {
@@ -79,10 +91,30 @@ $(function(){
         zTree.expandNode(treeNode);
     }
 
+<<<<<<< HEAD
     var checkedPeople;
+=======
+
+    //删除节点
+    function beforeRemove(treeId, treeNode) {
+        $("#modalDel").modal({});   //调用bootstrap模态框
+        $('#modalBody').append("确定删除" + treeNode.name + "?");    //为模态框动态添加内容
+        $('.close,.closeModal,#confirm').unbind('click').bind('click',function (event) {
+            if(event.target.id == 'confirm'){
+                var zTree = $.fn.zTree.getZTreeObj(treeId);
+                zTree.removeNode(treeNode)
+            }else if(event.target.class == 'close'){
+                $('#modalBody').empty();  //点×时将模态框内容置空
+            }
+             $('#modalBody').empty();                /*取消、确认模态框时将模态框内容置空*/
+            $('#modalDel').modal('toggle')          /*关闭模态框*/
+        });
+        return false;
+    }
+
+>>>>>>> 3968f3c10ccf5f09c0e08a0d0727f90af013420f
     //点击人员后将人员信息渲染到右边表格中
     function ztreeOnclick(event,treeId, treeNode){
-        // $().val(''ahhah)
         if(treeNode.level == 2){
             $('#name').val(treeNode.name);
             $('#idNumber').val(treeNode.身份证号);

@@ -7,9 +7,19 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="layui-v2.5.4/layui/css/layui.css">
     <link rel="stylesheet" href="ztree/css/demo.css" type="text/css">
+<<<<<<< HEAD
     <link rel="stylesheet" href="ztree/css/zTreeStyle/zTreeStyle.css" type="text/css">
     <link rel="stylesheet" href="ztree/css/metroStyle/metroStyle.css" type="text/css">
     <link rel="stylesheet" href="css/index.css">
+=======
+    <link rel="stylesheet" href="ztree/css/metroStyle/metroStyle.css" type="text/css">
+    <link rel="stylesheet" href="css/index.css">
+
+<!--    <script src="js/jquery-3.4.1.min.js"></script>-->
+<!--    <script src="js/bootstrap.js"></script>-->
+<!--    <script src="layui-v2.5.4/layui/layui.js"></script>-->
+<!--    <script src="js/index.js"></script>-->
+>>>>>>> 3968f3c10ccf5f09c0e08a0d0727f90af013420f
 </head>
 <style>
     .panel-info .panel-heading{
@@ -65,6 +75,7 @@
     .edit{
         margin: 10px 20px;
         width: 100px;
+<<<<<<< HEAD
     }
 
 /*    树状导航*/
@@ -117,6 +128,10 @@
         font-weight: 200;
         color: #31708F;
     }
+=======
+    }
+
+>>>>>>> 3968f3c10ccf5f09c0e08a0d0727f90af013420f
 </style>
 <body>
 <div class="layui-container">
@@ -140,27 +155,31 @@
                         </div>
                         <div class="navbar-container">
                             <ul class="nav navbar-nav">
+<<<<<<< HEAD
                                 <li><a href="archivesManagement.html">档案管理</a></li>
                                 <li class="active"><a href="wageManagement_theImportInterface.html">工资管理</a></li>
+=======
+                                <li><a href="archivesManagement.html" style="font-size: 18px;">档案管理</a></li>
+                                <li class="active"><a href="wageManagement_theImportInterface.html" style="font-size: 18px;">工资管理</a></li>
+>>>>>>> 3968f3c10ccf5f09c0e08a0d0727f90af013420f
                                 <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-size: 18px;">
                                         考评管理 <b class="caret"></b>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="#">月考评图</a></li>
-                                        <li><a href="#">季度考评图</a></li>
-                                        <li><a href="#">半年考评图</a></li>
-                                        <li class="divider"></li>
-                                        <li><a href="#">年度考评图</a></li>
-                                        <li class="divider"></li>
-                                        <li><a href="#">另一个分离的链接</a></li>
+                                        <ol><a href="appraisalManagement.html">考评管理</a></ol>
+                                        <ol><a href="appraisalChart.html">月考评图</a></ol>
+                                        <ol><a href="">季度考评图</a></ol>
+                                        <ol class="divider"></ol>
+                                        <ol><a href="#">半年考评图</a></ol>
+                                        <ol><a href="#">一年考评图</a></ol>
                                     </ul>
                                 </li>
                             </ul>
                             <div id="navbar" class="navbar-collapse collapse">
                                 <ul class="nav navbar-nav navbar-right">
                                     <li><a href="#"><img src="imgs/个人设置.png"alt="个人设置"></a></li>
-                                    <li><a href="#">英文</a></li>
+                                    <li><a href="#" style="font-size: 18px;">英文</a></li>
                                 </ul>
                                 <form class="navbar-form navbar-right">
                                     <input type="text" class="form-control" placeholder="Search...">
@@ -377,8 +396,48 @@
     </div>
 
 </div>
-<!--    导入人员模态框-->
+<!--添加模态框-->
+<div class="modal fade" id="modalAdd">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">添加</h4>
+            </div>
+            <div class="modal-body" id = "modalAddName">
+                <input type="text" placeholder="输入名称" id = "addInput" class="form-control">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" class = "closeModal">取消</button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" id = "modalAddconfirm">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
 
+<!--确认删除模态框-->
+<div class="modal fade" id="modalDel">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">确认删除</h4>
+            </div>
+            <div class="modal-body" id = "modalBody">
+                <!--                <p></p>-->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" class = "closeModal">取消</button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" id = "confirm">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--    导入人员模态框-->
 <div class="modal fade" id="myModalImport" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -398,6 +457,12 @@
         </div>
     </div>
 </div>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="layui-v2.5.4/layui/layui.js"></script>
+<script type="text/javascript" src="ztree/js/jquery.ztree.core.js"></script>
+<script type="text/javascript" src="ztree/js/jquery.ztree.exedit.js"></script>
+<script src="js/index.js"></script>
 
 
 <!--添加模态框-->

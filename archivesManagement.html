@@ -9,17 +9,8 @@
     <link rel="stylesheet" href="ztree/css/metroStyle/metroStyle.css" type="text/css">
     <link rel="stylesheet" href="css/index.css">
     <style>
-        ul.ztree{
-            width: 280px;
-        }
-        ul.ztree{
-            height: 400px;
-            background-color: transparent;
-        }
-
-        /*导航条设计*/
-        ul.ztree{
-            border: none!important;
+        .btn{
+            padding: 0;
         }
     </style>
 </head>
@@ -43,27 +34,31 @@
                     </div>
                     <div class="navbar-container">
                         <ul class="nav navbar-nav">
+<<<<<<< HEAD
                             <li class="active"><a href="archivesManagement.html">档案管理</a></li>
                             <li><a href="wageManagement_theImportInterface.html">工资管理</a></li>
+=======
+                            <li class="active"><a href="archivesManagement.html" style="font-size: 18px;">档案管理</a></li>
+                            <li><a href="wageManagement_theImportInterface.html" style="font-size: 18px;">工资管理</a></li>
+>>>>>>> 3968f3c10ccf5f09c0e08a0d0727f90af013420f
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-size: 18px;">
                                     考评管理 <b class="caret"></b>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">月考评图</a></li>
-                                    <li><a href="#">季度考评图</a></li>
-                                    <li><a href="#">半年考评图</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="#">年度考评图</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="#">另一个分离的链接</a></li>
+                                    <ol><a href="appraisalManagement.html">考评管理</a></ol>
+                                    <ol><a href="appraisalChart.html">月考评图</a></ol>
+                                    <ol><a href="">季度考评图</a></ol>
+                                    <ol class="divider"></ol>
+                                    <ol><a href="#">半年考评图</a></ol>
+                                    <ol><a href="#">一年考评图</a></ol>
                                 </ul>
                             </li>
                         </ul>
                         <div id="navbar" class="navbar-collapse collapse">
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a href="#"><img src="imgs/个人设置.png"alt="个人设置"></a></li>
-                                <li><a href="#">英文</a></li>
+                                <li><a href="#" style="font-size: 18px;">英文</a></li>
                             </ul>
                             <form class="navbar-form navbar-right">
                                 <input type="text" class="form-control" placeholder="Search...">
@@ -258,8 +253,8 @@
                 <input type="text" placeholder="输入名称" id = "addInput" class="form-control">
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal" class = "closeModal">取消</button>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" id = "modalAddconfirm">确定</button>
+                <button type="button" class="btn btn-default closeModal" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary"  id = "modalAddconfirm">确定</button>
             </div>
         </div>
     </div>
@@ -279,8 +274,8 @@
 <!--                <p></p>-->
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal" class = "closeModal">取消</button>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" id = "confirm">确定</button>
+                <button type="button" class="btn btn-default closeModal" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary"  id = "confirm">确定</button>
             </div>
         </div>
     </div>
