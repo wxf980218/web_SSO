@@ -7,7 +7,12 @@
  */
 
 //创建数据库连接
+
+
 $con = new mysqli("localhost","root","","oss");
+
+
+
 //检测连接
 if($con->connect_errno){
     die("连接失败:".$con->connect_errno);
@@ -15,6 +20,7 @@ if($con->connect_errno){
 //设置编码
 $con->set_charset("utf8");
 mysqli_options($con,MYSQLI_OPT_INT_AND_FLOAT_NATIVE,true);  //获取数据库数据类型
+
 session_start();
 
 
@@ -35,7 +41,5 @@ if($result->num_rows>0){
 }
 header('Content-Type:application/json'); //php发送json对象
 echo json_encode($data_arr);   //发送对象数组
-
-
 
 

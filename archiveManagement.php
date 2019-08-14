@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 $flag = isset($_POST['flag']) ? htmlspecialchars($_POST['flag']) : '';      //用来判断返回哪个数据
 $data = array();   //用于存放从数据库获取的数据
 $con = mysqli_connect('localhost','root','','oss');
@@ -9,7 +9,10 @@ if (!$con) {
 }
 
 switch ($flag){
+
+
 //    case 0: getZtreeNode(); break;
+
     case 1: getPersonInfo();break;    //获取人员信息
     case 2: saveChangeInfo();break;   //保存修改的信息
     case 3: delOperation();break;     //删除操作
@@ -23,7 +26,9 @@ switch ($flag){
 }
 
 
+
 //当 flag=0 时执行返回树节点数据
+
 
 //当 flag = 1 时，获取人员信息
 $errorInfo = ['$errorInfo' => 'err'];
@@ -34,8 +39,10 @@ function getPersonInfo(){
         $personInfo = "SELECT * FROM oss_archivesmanagementtable where id='$selectedPersonInfo'";
 //        工资
         $personSalary = "SELECT * FROM oss_wagemanagement where id='$selectedPersonInfo'";
-        $rs = mysqli_query($con,$personInfo);
-        $rsSalary = mysqli_query($con,$personSalary);
+
+        $rs = mysqli_query($con,$personInfo); //档案信息
+        $rsSalary = mysqli_query($con,$personSalary); //工资信息
+
         if($rs && $rsSalary){
             $personInfo = new personInfo();
             while($row = $rs->fetch_assoc()){
@@ -54,7 +61,9 @@ function getPersonInfo(){
                 $personInfo -> politicsBackground = $row['politicsBackground'];
                 $personInfo -> entryTime = $row['entryTime'];
                 $personInfo -> id = $row['id'];
+
                 $personInfo -> photo = './uploads/'.$row['photo'];
+
 //                工资
             }
             while ($row = $rsSalary -> fetch_assoc()){
@@ -77,7 +86,7 @@ function getPersonInfo(){
     }else{
        error();
     }
-//    echo $selectedPersonInfo;
+
 }
 
 
@@ -106,7 +115,9 @@ function saveChangeInfo(){
     $entryTime = isset($_POST['entryTime']) ? htmlspecialchars($_POST['entryTime']) : '';
 
     $updateSql = "UPDATE oss_archivesmanagementtable SET
+
                     name='$name',personIDNum='$personIDNum',gender='$gender',phoneNum= '$phoneNum',jobNum= '$jobNum',
+
                     jobPosition='$jobPosition',school='$school',familyAdd_province='$familyAdd_province',familyAdd_city='$familyAdd_city',
                     eduBackground='$eduBackground',nativePlace_province='$nativePlace_province',nativePlace_city='$nativePlace_city',
                     politicsBackground='$politicsBackground',entryTime='$entryTime'
@@ -239,7 +250,7 @@ function importSalary(){
     $selPerJobNum = $_POST['selectedPersonJobNum'];
     for($j = 0;$j < count($checkedNodes);$j++){
         $id = $checkedNodes[$j];
-//        echo $selPerJobNum;
+
         for($i = 0;$i < count($checkedProperty); $i++){
             echo $id;
             switch ($checkedProperty[$i]){
@@ -287,7 +298,6 @@ function importSalary(){
 //上传图片
 function upPhoto(){
     global $con;
-    $id = $flag = isset($_POST['id']) ? htmlspecialchars($_POST['id']) : '';
     $allowedExts = array("gif", "jpeg", "jpg", "png");
     $temp = explode(".", $_FILES["file"]["name"]);
     $extension = end($temp);
@@ -332,6 +342,7 @@ function upPhoto(){
     {
         error();
     }
+
 }
 //失败之后的回调函数
 function error(){
@@ -342,6 +353,7 @@ function error(){
     echo $msgInfo;
 }
 
+
 function success(){
     $msgInfo = new msg();
     $msgInfo -> massage = '操作成功';
@@ -349,6 +361,7 @@ function success(){
     $msgInfo = json_encode($data,JSON_UNESCAPED_UNICODE);
     echo $msgInfo;
 }
+
 
 //导入工资函数
 function rsImportSalary($inportSalary){
@@ -386,7 +399,9 @@ class personInfo{
     public $politicsBackground;
     public $entryTime;
     public $id;
+
     public $photo;
+
 //    工资信息
     public $level;
     public $highTechSub;

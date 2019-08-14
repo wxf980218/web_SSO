@@ -7,7 +7,7 @@
  */
 ////url末端的q参数
 //$q = isset($_GET["q"]) ? intval($_GET["q"]) : '';
-
+session_start();
 //创建数据库连接
     $con = new mysqli("localhost","root","","oss");
     //检测连接
@@ -17,7 +17,9 @@
     //设置编码
     $con->set_charset("utf8");
     mysqli_options($con,MYSQLI_OPT_INT_AND_FLOAT_NATIVE,true);  //获取数据库数据类型
-    session_start();
+
+
+
 
 
 

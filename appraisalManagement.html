@@ -170,7 +170,9 @@
                     </div>
                     <!--                删除-->
                     <div class="layui-col-md3">
-                        <button type="button" class="layui-btn layui-btn-danger" id="delete">删除</button>
+
+                        <button data-method="confirmTrans" class="layui-btn layui-btn-danger" id="delete">删除</button>
+
                     </div>
                 </div>
             </div>
@@ -414,6 +416,8 @@
     </div>
 </div>
 
+
+
 <script src="js/jquery-3.4.1.min.js"></script>
 <script src="js/bootstrap.js"></script>
 <script src="layui-v2.5.4/layui/layui.js"></script>
@@ -465,6 +469,7 @@
             }
         });
     });
+
 </script>
 </body>
 </html>

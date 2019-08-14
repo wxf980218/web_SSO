@@ -1,5 +1,7 @@
 <?php
+
 session_start();
+
 $userName = isset($_POST['userName']) ? htmlspecialchars($_POST['userName']) : '';
 $passWord = isset($_POST['passWord']) ? htmlspecialchars($_POST['passWord']) : '';
 //var_dump($_POST);

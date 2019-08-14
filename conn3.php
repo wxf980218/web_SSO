@@ -5,16 +5,24 @@
  * Date: 2018/8/8
  * Time: 14:07
  */
-
+session_start();
 //创建数据库连接
+
+
 $con = new mysqli("localhost","root","","oss");
+
 //检测连接
 if($con->connect_errno){
     die("连接失败:".$con->connect_errno);
 }
 //设置编码
 $con->set_charset("utf8");
-session_start();
+
+
+
+
+
+
 header("Content-type:text/html;charset=utf-8");
 
 //保存键传来的值

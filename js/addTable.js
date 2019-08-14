@@ -504,10 +504,55 @@ $(function () {
         if(treeNodeInfo==null){
             alert('你还没有选中结点！');
         }else{
+            treeNodeInfo.year = year;
+            treeNodeInfo.month = month;
+            localStorage.setItem('tendencyInfo',JSON.stringify(treeNodeInfo));
             window.location.href = "appraisalChart.html";
         }
     });
 
+    //删除键
+    layui.use('layer', function(){
+        var $ = layui.jquery, layer = layui.layer;
+        //触发事件
+        var active ={
+            confirmTrans: function(){
+                //配置一个透明的询问框
+                if(treeNodeInfo===undefined||year===undefined||month===undefined){
+                    layer.msg('没有选择结点或时间！');
+                }else{
+                    //弹出信息将数据库的记录返回，调用conn3或者其他PHP，写delete语句
+                    layer.msg('您确定删除<br>'+treeNodeInfo.name+year+'年'+month+'月'+"的<br>考评管理记录吗", {
+                        time: 10000, //5s后自动关闭
+                        btn: ['确定', '反悔了'],//每个按钮还可以增添函数
+                        yes:function(index,layero){
+                            $.post('./conn4.php',{
+                                id:treeNodeInfo.id,
+                                name:treeNodeInfo.name,
+                                year:year,
+                                month:month
+                            },function (data,status) {
+                                alert("删除成功！");
+                                //动态刷新appraisalJson,并在页面上显示
+                                $.get("./conn2.php",function (data,status) {
+                                    //data为object
+                                    appraisalJson = data;
+                                    console.log(appraisalJson);
+                                    drawData();
+                                });
+                            });
+                            layer.close(index); //如果设定了yes回调，需进行手工关闭
+                        }
+                    });
+                }
+            }
+        };
+
+        $('#delete').on('click', function(){
+            var othis = $(this), method = othis.data('method');
+            active[method] ? active[method].call(this, othis) : '';
+        });
+    });
     //appraisalChart网页JS
     layui.use('laydate', function(){
         var laydate = layui.laydate;
@@ -647,14 +692,15 @@ $(function () {
 
 
     //树状导航栏搜索框业务
-    $('#searchConfirm').unbind('click').bind('click',search)
+    $('#searchConfirm').unbind('click').bind('click',search);
     //搜索框回车进行搜索
     $('#searchContent').bind('keydown',function (event) {
         var event = window.event || arguments.callee.caller.arguments[0];
         if(event.keyCode == 13){
             search();
         }
-    })
+    });
+
     //搜索框搜索函数
     function search(){
         let flag = false;
@@ -674,11 +720,11 @@ $(function () {
                 }
             })
         }else if(/^\d+$/.test(searchContent)){        /*数组类型字符串以工号进行搜寻*/
-            zNodes.forEach(function (item) {
-                if(searchContent == item.工号){
-                    //更加工号获取某个结点
+            ztreeJson.forEach(function (item) {
+                if(searchContent == item.id){
+                    //添加工号获取某个结点
                     var zTree = $.fn.zTree.getZTreeObj("treeDemo");
-                    var treeNode = zTree.getNodeByParam("工号",searchContent);
+                    var treeNode = zTree.getNodeByParam("id",searchContent);
                     //设置结点为选中状态
                     zTree.selectNode(treeNode);
                     //调用ztreeOnclick 函数使结点信息渲染到右侧表格
@@ -688,7 +734,7 @@ $(function () {
             })
         }
         if(flag == false){
-            $('#searchContent').val('')
+            $('#searchContent').val('');
             $('#searchContent').attr('placeholder','请输入正确的名字或工号');
             $("#searchContent").shake(2, 10, 400);        /*调用抖动动画*/
         }

@@ -16,9 +16,9 @@
     <script src="js/addChart.js"></script>
 </head>
 <style>
-    .glyphicon-picture{
-        font-size: 500px;
-    }
+    /*.glyphicon-picture{*/
+    /*    font-size: 500px;*/
+    /*}*/
 </style>
 <body>
 <div class="layui-container">
@@ -109,18 +109,19 @@
         <div class="layui-col-md7 layui-col-md-offset1">
             <div class="layui-row layui-col-space10">
                 <!--                日期表-->
-                <div class="layui-col-lg6">
+                <div class="layui-col-md6">
                     <label class="layui-form-label" for="test1">日期</label>
                     <div class="layui-inline">
                         <input type="text" class="layui-input" id="test1" placeholder="yyyy-MM">
                     </div>
                 </div>
+                <div class="layui-col-md3">
+                    <button type="button" class="layui-btn layui-btn-normal" id="back">返回</button>
+                </div>
             </div>
             <div class="layui-row">
-<!--                插入图表-->
-                <div id="main" style="width: 750px;height:600px; margin-top: 20px;"><span class="glyphicon glyphicon-picture" style="margin-left: 100px"></span>
+                <div id="main" style="width: 750px;height:600px; margin-top: 20px;">
                 </div>
-
             </div>
         </div>
     </div>
